@@ -1,0 +1,3 @@
+[submodule "src/torus"]
+	path = src/torus
+	url = git@github.com:coreos/torus.git
