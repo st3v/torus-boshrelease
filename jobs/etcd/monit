@@ -1,0 +1,6 @@
+check process etcd
+  with pidfile /var/vcap/sys/run/etcd/pid
+  start program "/var/vcap/jobs/etcd/bin/ctl start"
+  stop program "/var/vcap/jobs/etcd/bin/ctl stop"
+  group vcap
+

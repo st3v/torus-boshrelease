@@ -1,0 +1,35 @@
+#!/bin/bash
+set -e
+
+RUN_DIR=/var/vcap/sys/run/etcd
+LOG_DIR=/var/vcap/sys/log/etcd
+PKG_DIR=/var/vcap/packages/etcd
+
+PIDFILE=${RUN_DIR}/pid
+
+case $1 in
+
+  start)
+    mkdir -p $RUN_DIR $LOG_DIR
+    chown -R vcap:vcap $RUN_DIR $LOG_DIR
+
+    echo $$ > $PIDFILE
+
+    exec $PKG_DIR/etcd \
+      --listen-client-urls 'http://<%= p("etcd.address") %>' \
+      --advertise-client-urls 'http://<%= p("etcd.address") %>' \
+      >>  $LOG_DIR/etcd.stdout.log \
+      2>> $LOG_DIR/etcd.stderr.log
+    ;;
+
+  stop)
+    kill -9 `cat $PIDFILE`
+    rm -f $PIDFILE
+
+    ;;
+
+  *)
+    echo "Usage: ctl {start|stop}" ;;
+
+esac
+

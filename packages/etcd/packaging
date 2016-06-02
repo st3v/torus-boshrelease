@@ -1,0 +1,5 @@
+set -e
+
+tar xzf etcd/etcd*.tar.gz
+cp -R etcd*/* ${BOSH_INSTALL_TARGET}
+

@@ -1,0 +1,13 @@
+---
+name: etcd
+
+templates:
+  ctl.erb: bin/ctl
+
+packages:
+  - etcd
+
+properties:
+  etcd.address:
+    description: "Address to listen on for client requests"
+
