@@ -1,0 +1,8 @@
+---
+final_name: torus
+blobstore:
+  provider: s3
+  options:
+    bucket_name: torus-boshrelease
+    region: eu-west-1
+    endpoint: https://s3-eu-west-1.amazonaws.com

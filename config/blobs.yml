@@ -1,1 +1,9 @@
---- {}
+---
+torus/torus_v0.1.0_linux_amd64.tar.gz:
+  object_id: c009209a-ddf9-43a8-acbb-f924ca25931f
+  sha: 9673f93a4cb1d323b642ec361f662576b5dc3e34
+  size: 16138683
+etcd/etcd-v3.0.0-beta.0-linux-amd64.tar.gz:
+  object_id: bcc25fd6-6ebd-4175-8a56-76541c03eda5
+  sha: 5b03597ea71f18fafe3f1d3e3dc284fd6775c21e
+  size: 9692301
