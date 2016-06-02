@@ -4,3 +4,4 @@ name: torus
 dependencies:
 
 files:
+  - torus/*.tar.gz

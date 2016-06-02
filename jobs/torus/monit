@@ -1,0 +1,5 @@
+check process torus
+  with pidfile /var/vcap/sys/run/torus/pid
+  start program "/var/vcap/jobs/torus/bin/ctl start"
+  stop program "/var/vcap/jobs/torus/bin/ctl stop"
+  group vcap

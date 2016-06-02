@@ -1,0 +1,39 @@
+#!/bin/bash
+set -e
+
+RUN_DIR=/var/vcap/sys/run/torus
+LOG_DIR=/var/vcap/sys/log/torus
+PKG_DIR=/var/vcap/packages/torus
+
+PIDFILE=${RUN_DIR}/pid
+
+case $1 in
+
+  start)
+    mkdir -p $RUN_DIR $LOG_DIR
+    chown -R vcap:vcap $RUN_DIR $LOG_DIR
+
+    $PKG_DIR/torusctl -C <%= p("torus.etcd_address") %> init || true
+    
+    exec $PKG_DIR/torusd \
+      --etcd <%= p("torus.etcd_address") %> \
+      --data-dir /var/vcap/store/torus \
+      --size <%= p("torus.size") %> \
+      --auto-join \
+      --peer-address http://0.0.0.0:40001 \
+      2>>  $LOG_DIR/torusd.stderr.log \
+      >> $LOG_DIR/torusd.stdout.log &
+
+    echo $! > $PIDFILE
+    ;;
+
+  stop)
+    kill -9 `cat $PIDFILE`
+    rm -f $PIDFILE
+
+    ;;
+
+  *)
+    echo "Usage: ctl {start|stop}" ;;
+
+esac

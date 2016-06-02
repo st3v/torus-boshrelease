@@ -1,0 +1,17 @@
+---
+name: torus
+
+templates:
+  ctl.erb: bin/ctl
+
+packages:
+  - torus
+
+properties:
+  
+  torus.etcd_address:
+    description: "Address of etcd to store torus metadata"
+
+  torus.size:
+    description: "Size of torus node"
+    default: 5MiB
