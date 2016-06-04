@@ -1,0 +1,25 @@
+---
+packages:
+- name: etcd
+  version: 7060894c4f272edea12b23b0e1114a04514bbab8
+  fingerprint: 7060894c4f272edea12b23b0e1114a04514bbab8
+  sha1: 89eb0f0cf1095761b0a7409b0dac402470902226
+  dependencies: []
+- name: torus
+  version: c94054114ce8354b6254b2ad9a5771505be50b7b
+  fingerprint: c94054114ce8354b6254b2ad9a5771505be50b7b
+  sha1: 77785e4d5538340f4a1c4306b765eed3d578da24
+  dependencies: []
+jobs:
+- name: etcd
+  version: 2803ef73e2d8bfabe4708fe6886d1e2e7410f250
+  fingerprint: 2803ef73e2d8bfabe4708fe6886d1e2e7410f250
+  sha1: bc53153a0d3545e627647e17b4394ce644a196b4
+- name: torus
+  version: 521cdff5b8b4a8a3c31cf6361a177846907f7ece
+  fingerprint: 521cdff5b8b4a8a3c31cf6361a177846907f7ece
+  sha1: 96624b58d081da3ec7ed977f8f437573b323d5a1
+commit_hash: be31206a
+uncommitted_changes: true
+name: torus
+version: '1'
